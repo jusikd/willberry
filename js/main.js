@@ -173,7 +173,7 @@ const filterCards = function (field, value) {
 	getGoods()
 		.then(function (data) {
 		const filteredGoods = data.filter( function (good) { // filter вернёт все элементы, которые вернут true, а остальные проигнорирует
-			return good[field] === value
+			return (value !== 'All') ? good[field] === value : good;
 		});
 		return filteredGoods;
 	})
@@ -221,3 +221,4 @@ navigationLink.forEach(function (link) {
 // 	}]
 
 // renderCards(arr);
+
